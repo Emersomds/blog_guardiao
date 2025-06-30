@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Define a pasta base do projeto
+    RewriteBase /blog_guardiao/public/
+
+    # Redireciona tudo que não seja um arquivo ou diretório existente
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Redireciona para index.php com a URI original
+    RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
