@@ -1,3 +1,47 @@
+# 🛡️ blog_guardiao
+
+**Sistema de blog com painel administrativo**, desenvolvido com **PHP** em estrutura **MVC** e interface em **Bootstrap**. O sistema é focado em segurança, controle de usuários e rastreabilidade por meio de logs.
+
+---
+
+## 📁 Estrutura do Projeto
+
+blog_guardiao/
+├── app/
+│ ├── controllers/
+│ ├── core/
+│ ├── models/
+│ └── views/
+├── config/
+│ └── database.php
+├── public/
+│ ├── assets/
+│ ├── uploads/
+│ └── .htaccess
+└── index.php
+
+
+---
+
+## ✅ Funcionalidades
+
+### 🔐 Autenticação
+- Login seguro com `password_hash()` e `password_verify()`
+- CSRF token em formulários
+- Controle de sessão
+- Logout seguro
+
+### 👤 Gerenciamento de Usuários
+- Cadastro de novos usuários (admin ou usuário comum)
+- Validação de dados (e-mail, senha)
+- Edição e exclusão de usuários
+- Acesso restrito com base no tipo (`role`)
+- Apenas `admin` pode gerenciar usuários e visualizar logs
+
+### 📝 Gerenciamento de Posts
+- Criação de posts com upload de imagem (JPG, PNG
+
+
 ### 📝 Gerenciamento de Posts
 - Criação de posts com upload de imagem (JPG, PNG, GIF)
 - Validação de tipo e tamanho (máx. 2MB)
