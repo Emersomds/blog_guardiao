@@ -1,0 +1,29 @@
+# Ignorar pastas com uploads (conteúdo gerado pelo usuário)
+public/uploads/
+
+# Ignorar arquivos de configuração sensíveis
+config/config.php
+.env
+
+# Logs
+*.log
+
+# Arquivos de banco locais (caso use SQLite ou similar)
+*.sqlite
+
+# Ignorar dependências PHP (caso use Composer futuramente)
+/vendor/
+
+# Ignorar configurações de IDEs
+.vscode/
+.idea/
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Evitar subir cache temporário (caso algum framework ou biblioteca crie)
+cache/
+tmp/
+
+setup.php
