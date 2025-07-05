@@ -7,17 +7,29 @@
 ## 📁 Estrutura do Projeto
 
 blog_guardiao/
+
 ├── app/
+
 │ ├── controllers/
+
 │ ├── core/
+
 │ ├── models/
+
 │ └── views/
+
 ├── config/
+
 │ └── database.php
+
 ├── public/
+
 │ ├── assets/
+
 │ ├── uploads/
+
 │ └── .htaccess
+
 └── index.php
 
 
@@ -73,7 +85,7 @@ blog_guardiao/
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/blog_guardiao.git
+   [git clone https://github.com/Emersomds/blog_guardiao.git
    ```
 
 2. Configure o banco de dados MySQL:
