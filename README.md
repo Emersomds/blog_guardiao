@@ -7,17 +7,29 @@
 ## 📁 Estrutura do Projeto
 
 blog_guardiao/
+
 ├── app/
+
 │ ├── controllers/
+
 │ ├── core/
+
 │ ├── models/
+
 │ └── views/
+
 ├── config/
+
 │ └── database.php
+
 ├── public/
+
 │ ├── assets/
+
 │ ├── uploads/
+
 │ └── .htaccess
+
 └── index.php
 
 
