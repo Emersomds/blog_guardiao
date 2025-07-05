@@ -80,6 +80,44 @@ blog_guardiao/
    - Crie um banco com nome `guardiao_db`
    - Importe o arquivo `guardiao_db.sql`
 
+```bash
+   -- Tabela: users 
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `criado_em` datetime DEFAULT current_timestamp(),
+  `role` varchar(20) NOT NULL DEFAULT 'autor',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Tabela: postsVFZ
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(255) NOT NULL,
+  `conteudo` text NOT NULL,
+  `data_publicacao` datetime DEFAULT current_timestamp(),
+  `imagem` varchar(255) DEFAULT NULL,
+  `autor_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `autor_id` (`autor_id`),
+  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`autor_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Tabela: logs
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `acao` varchar(100) NOT NULL,
+  `ip` varchar(45) DEFAULT NULL,
+  `user_agent` varchar(255) DEFAULT NULL,
+  `data_hora` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
 3. Ajuste o arquivo `/config/database.php` com suas credenciais.
 
 4. Configure o Apache para apontar para a pasta `public/`.
