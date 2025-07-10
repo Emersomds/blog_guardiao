@@ -52,9 +52,6 @@ blog_guardiao/
 
 ### 📝 Gerenciamento de Posts
 - Criação de posts com upload de imagem (JPG, PNG
-
-
-### 📝 Gerenciamento de Posts
 - Criação de posts com upload de imagem (JPG, PNG, GIF)
 - Validação de tipo e tamanho (máx. 2MB)
 - Listagem e edição de posts
@@ -66,11 +63,27 @@ blog_guardiao/
 - Armazena IP, agente do navegador e ação executada
 - Painel de visualização com paginação
 
+### 🚨 Detecção de Ataques (Middleware de Segurança)
+- Verifica entradas para padrões de **SQL Injection** e **XSS**
+- Registra tentativas maliciosas no banco de dados e em `/storage/logs_ataques.txt`
+- API JSON segura para consulta dos ataques:
+
 ### 📄 Página Pública
 - Página inicial exibe posts mais recentes
 - Página individual do post via URL amigável `/post/ver/:id`
 
 ---
+### 📈 Dashboard com Streamlit (Python)
+- Dashboard externa em Python (via Streamlit) para exibir:
+- Gráfico de tipos de ataque
+- IPs mais ativos
+- Linha do tempo dos ataques
+- Últimos registros
+- Conecta à API JSON segura para visualização em tempo real
+
+---
+```/public/api/logs_ataques?token=meuTokenSegur0
+```
 
 ## 🔐 Controle de Acesso
 
@@ -128,8 +141,19 @@ CREATE TABLE `logs` (
   `data_hora` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-```
 
+
+-- Tabela: logs_ataques
+CREATE TABLE `logs_ataques` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(45) DEFAULT NULL,
+  `tipo` varchar(20) DEFAULT NULL,
+  `rota` varchar(255) DEFAULT NULL,
+  `user_agent` varchar(255) DEFAULT NULL,
+  `data` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+);
+```
 3. Ajuste o arquivo `/config/database.php` com suas credenciais.
 
 4. Configure o Apache para apontar para a pasta `public/`.
