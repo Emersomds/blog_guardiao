@@ -80,9 +80,14 @@ blog_guardiao/
 - Linha do tempo dos ataques
 - Últimos registros
 - Conecta à API JSON segura para visualização em tempo real
-
 ---
-```/public/api/logs_ataques?token=meuTokenSegur0
+- Link do repositório Dashboard de monitoramento.
+```
+https://github.com/Emersomds/blog_guardiao_streamlit
+```
+---
+```
+/public/api/logs_ataques?token=meuTokenSegur0
 ```
 
 ## 🔐 Controle de Acesso
